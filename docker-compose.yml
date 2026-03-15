@@ -11,7 +11,7 @@ services:
       DB_NAME: ${DB_NAME:-bookdb}
       DB_USER: ${DB_USER:-user}
       DB_PASS: ${DB_PASS:-password}
-      BASE_URL: ${BASE_URL:-http://localhost:8080/}
+      BASE_URL: ${BASE_URL:-https://localhost:8443/}
       XDEBUG_MODE: ${XDEBUG_MODE:-off}
       XDEBUG_CONFIG: ${XDEBUG_CONFIG:-client_host=host.docker.internal client_port=9003}
     volumes:
@@ -28,6 +28,7 @@ services:
     container_name: camagru-nginx
     ports:
       - "8080:80"
+      - "8443:443"
     volumes:
       - ./:/var/www/html:ro
     depends_on:

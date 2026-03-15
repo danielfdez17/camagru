@@ -41,6 +41,9 @@ restart:
 	$(COMPOSE) down
 	$(COMPOSE) up -d --build
 
+# ? 🔄  Restarts the containers
+re: fclean up
+
 # ? 📜  Follows the logs of all containers
 logs:
 	$(COMPOSE) logs -f
@@ -53,9 +56,16 @@ ps:
 images:
 	$(COMPOSE) images
 
+# ? 📊  Shows the status of containers and images
+status: images ps
+
 # ? 🧹  Stops and removes containers, networks, volumes, and images
 clean:
 	$(COMPOSE) down -v --remove-orphans
+
+# ? 🧹  Stops and removes containers, networks, volumes, images, and orphans
+fclean:
+	$(COMPOSE) down -v --rmi all --remove-orphans
 
 # ? 🐚  Opens a shell in the PHP container
 shell-php:
