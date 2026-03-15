@@ -61,7 +61,7 @@ status: images ps
 
 # ? 🧹  Stops and removes containers, networks, volumes, and images
 clean:
-	$(COMPOSE) down -v --remove-orphans
+	$(COMPOSE) down --remove-orphans
 
 # ? 🧹  Stops and removes containers, networks, images, and orphans (keeps volumes)
 fclean:

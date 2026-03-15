@@ -16,6 +16,10 @@ class BookController extends Controller
     // Method to add a new book
     public function addNewBook()
     {
+        if (!$this->requireAuth()) {
+            return;
+        }
+
         // Check if the request method is POST by checking whether the user is clicked submit button
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             // Load the Book model
@@ -24,6 +28,7 @@ class BookController extends Controller
             $bookModel->addBook($_POST["title"], $_POST["author"], $_POST['isbn']);
             // Redirect to the main page where all the books are listed in a table
             header('Location: ' . BASE_URL . 'books');
+            return;
         }
         // Render the view to add a new book
         $this->renderView('Book/AddBook');
@@ -32,12 +37,17 @@ class BookController extends Controller
     // Method to delete a book by its ID
     public function deleteBook($id)
     {
+        if (!$this->requireAuth()) {
+            return;
+        }
+
         // Load the Book model
         $bookModel = $this->loadModel("Book");
         // Delete the book with the given ID
         $bookModel->delete($id);
         // Redirect to the books list page
         header('Location: ' . BASE_URL . 'books');
+        return;
     }
 
     // Method to display a book by its ID
@@ -54,6 +64,10 @@ class BookController extends Controller
     // Method to update a book by its ID
     public function updateBook($id)
     {
+        if (!$this->requireAuth()) {
+            return;
+        }
+
         // Load the Book model
         $bookModel = $this->loadModel("Book");
         // Check if the request method is POST
@@ -62,6 +76,7 @@ class BookController extends Controller
             $bookModel->update($id, $_POST['title'], $_POST['author'], $_POST['isbn']);
             // Redirect to the books list page
             header('Location: ' . BASE_URL . 'books');
+            return;
         }
         // Retrieve the book with the given ID
         $book = $bookModel->getBookById($id);

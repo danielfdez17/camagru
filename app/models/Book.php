@@ -18,7 +18,7 @@ class Book
     public function getAllBooks()
     {
         // Prepare a SQL query to select all records from the book table
-        $this->db->query("SELECT * FROM book");
+        $this->db->query("SELECT * FROM book WHERE active = TRUE");
         // Execute the prepared query
         $this->db->execute();
         // Return the results of the query
@@ -74,7 +74,7 @@ class Book
     public function delete($id)
     {
         // Prepare a SQL query to delete a record from the book table by ID
-        $this->db->query("DELETE FROM book WHERE id=:id");
+        $this->db->query("UPDATE book SET active = FALSE WHERE id = :id");
         // Bind the id parameter to the query
         $this->db->bind(':id', $id);
         // Execute the prepared query

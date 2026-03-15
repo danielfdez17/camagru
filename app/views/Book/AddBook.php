@@ -1,19 +1,19 @@
-<div>
+<div class="container mt-5">
     <h1>Add Book</h1>
-    <form method="POST">
+    <form class="mb-3" method="POST">
         <fieldset>
-            <label for="isbn">ISBN No: </label>
-            <input type="text" name="isbn" id="isbn">
+            <label class="form-label" for="isbn">ISBN No: </label>
+            <input class="form-control" type="text" name="isbn" id="isbn" required>
         </fieldset>
         <fieldset>
-            <label for="title">Title: </label>
-            <input type="text" name="title" id="title">
+            <label class="form-label" for="title">Title: </label>
+            <input class="form-control" type="text" name="title" id="title" required>
         </fieldset>
         <fieldset>
-            <label for="author">Author: </label>
-            <input type="text" name="author" id="author">
+            <label class="form-label" for="author">Author: </label>
+            <input class="form-control" type="text" name="author" id="author" required>
         </fieldset>
-        <button type="submit">Add Book</button>
+        <button type="submit" class="btn btn-primary">Add Book</button>
     </form>
-    <a href="<?=BASE_URL?>books">View All Books</a>
+    <a href="<?=BASE_URL?>books" class="btn btn-secondary">View All Books</a>
 </div>

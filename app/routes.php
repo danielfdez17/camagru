@@ -18,7 +18,19 @@ $routes = [
     'book/delete' => ['controller' => 'BookController', 'method' => 'deleteBook'],
 
     // Route for updating a book, maps to the 'update' method of 'BookController'
-    'book/update' => ['controller' => 'BookController', 'method' => 'updateBook']
+    'book/update' => ['controller' => 'BookController', 'method' => 'updateBook'],
+
+    // Route for the login page, maps to the 'login' method of 'AuthController'
+    'auth/login' => ['controller' => 'AuthController', 'method' => 'login'],
+
+    // Route for the registration page
+    'auth/register' => ['controller' => 'AuthController', 'method' => 'register'],
+
+    // Route for logging out current user
+    'auth/logout' => ['controller' => 'AuthController', 'method' => 'logout'],
+
+    // Route for viewing/updating current profile
+    'auth/profile' => ['controller' => 'AuthController', 'method' => 'profile'],
 ];
 
 ?>

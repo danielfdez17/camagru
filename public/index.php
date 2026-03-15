@@ -8,6 +8,12 @@ require_once "../app/core/Database.php";
 // Include the Controller class file
 require_once "../app/core/Controller.php";
 
+// Include session and cookie management helpers
+require_once "../app/core/SessionManager.php";
+
+// Initialize session lifecycle before route dispatching
+SessionManager::init();
+
 // Include the App class file
 require_once "../app/core/App.php";
 
