@@ -63,9 +63,9 @@ status: images ps
 clean:
 	$(COMPOSE) down -v --remove-orphans
 
-# ? 🧹  Stops and removes containers, networks, volumes, images, and orphans
+# ? 🧹  Stops and removes containers, networks, images, and orphans (keeps volumes)
 fclean:
-	$(COMPOSE) down -v --rmi all --remove-orphans
+	$(COMPOSE) down --rmi all --remove-orphans
 
 # ? 🐚  Opens a shell in the PHP container
 shell-php:
